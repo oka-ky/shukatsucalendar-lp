@@ -1,0 +1,1264 @@
+/* リセットCSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* 変数定義 */
+:root {
+    --primary-color: #4b9cfb;
+    --primary-dark: #3a8ae9;
+    --secondary-color: #2962FF;
+    --secondary-dark: #1e4ed8;
+    --text-dark: #1a1a1a;
+    --text-medium: #4a4a4a;
+    --text-light: #6b7280;
+    --text-lighter: #9ca3af;
+    --bg-gray: #f8fafc;
+    --bg-light: #f1f5f9;
+    --white: #FFFFFF;
+    --accent-red: #ef4444;
+    --accent-green: #10b981;
+    --accent-yellow: #f59e0b;
+    --transition: 0.4s cubic-bezier(0.4, 0.4, 0, 1);
+    --transition-fast: 0.2s cubic-bezier(0.4, 0.4, 0, 1);
+    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-primary: 0 8px 24px rgba(75, 156, 251, 0.3);
+    --shadow-primary-lg: 0 20px 40px rgba(75, 156, 251, 0.2);
+    --border-radius-sm: 6px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-xl: 16px;
+    --border-radius-2xl: 20px;
+    --border-radius-full: 9999px;
+}
+
+/* 基本スタイル */
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ヘッダー */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-sm);
+    z-index: 1000;
+    transition: var(--transition);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+}
+
+.header-logo {
+    height: auto;
+    width: 400px;
+    object-fit: contain;
+    transition: var(--transition-fast);
+}
+
+
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.header-nav a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+    padding: 8px 0;
+}
+
+.header-nav a:hover {
+    color: var(--primary-color);
+}
+
+.header-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transition: width 0.3s ease;
+    border-radius: var(--border-radius-full);
+}
+
+.header-nav a:hover::after {
+    width: 100%;
+}
+
+.header-nav a.header-cta {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: var(--border-radius-full);
+}
+
+.header-nav a.btn-outline-primary {
+    border: 2px solid var(--primary-color); 
+    color: var(--primary-color);        
+    background-color: transparent;
+  }
+  
+  .header-nav a.btn-outline-primary:hover {
+    color: white;
+    background-color: var(--primary-color); 
+  }
+
+/* モバイルメニュー */
+.mobile-menu-toggle {
+    display: none;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--text-dark);
+    position: absolute;
+    left: 0;
+    transition: var(--transition);
+}
+
+.mobile-menu-toggle span:nth-child(1) {
+    top: 8px;
+}
+
+.mobile-menu-toggle span:nth-child(2) {
+    top: 14px;
+}
+
+.mobile-menu-toggle span:nth-child(3) {
+    top: 20px;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 14px;
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 14px;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu.active {
+    transform: translateX(0);
+}
+
+.mobile-menu a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.mobile-menu a:hover {
+    color: var(--primary-color);
+}
+
+/* ボタン共通スタイル */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    border-radius: var(--border-radius-lg);
+    text-decoration: none;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
+    box-shadow: var(--shadow-md);
+    border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-primary);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary {
+    background: var(--white);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text-dark);
+    border: 2px solid var(--text-light);
+}
+
+.btn-outline:hover {
+    background: var(--text-dark);
+    color: var(--white);
+    border-color: var(--text-dark);
+}
+
+
+
+/* ヒーローセクション */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fdedfc 0%, #f8fafc 50%, #aed9f7 100%);
+    display: flex;
+    align-items: center;
+    padding: 120px 0 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(75, 156, 251, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(41, 98, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(75, 156, 251, 0.05) 0%, transparent 50%);
+    opacity: 0.8;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0.5" fill="%234b9cfb" opacity="0.1"/></svg>') repeat;
+    background-size: 60px 60px;
+    opacity: 0.3;
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(180deg); }
+}
+
+.hero .container {
+    max-width: 1500px; /* または例えば '1500px' のように具体的な広い値を指定 */
+    /* 必要であれば padding も調整できます ex: padding: 0; */
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-text h1 {
+    font-size: clamp(36px, 5vw, 80px);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    animation: fadeInUp 0.8s ease-out;
+    background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary-color) 50%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+}
+
+.hero-text p {
+    font-size: clamp(18px, 2.5vw, 22px);
+    color: var(--text-light);
+    margin-bottom: 40px;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.hero-mockup {
+    width: 100%;       /* 親要素の幅に対して100%で表示 */
+    height: auto;      /* 高さは幅に合わせて自動調整（これで比率が保たれます） */
+    display: block;    /* 画像の下に余計な隙間ができないようにする場合などに追加 */
+}
+
+.hero-text .btn {
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+    font-size: 18px;
+    padding: 18px 36px;
+}
+
+.hero-image {
+    position: relative;
+    height: 700px;
+    animation: fadeIn 1s ease-out 0.6s both;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    background: linear-gradient(135deg, rgba(75, 156, 251, 0.1) 0%, rgba(41, 98, 255, 0.1) 100%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 4s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+    50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.3; }
+}
+
+/* 画像プレースホルダー */
+.mockup-placeholder {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-radius: var(--border-radius-2xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-lighter);
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+/*
+.mockup-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.8s ease;
+}
+
+.mockup-placeholder:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+}
+
+.mockup-placeholder:hover::before {
+    transform: translateX(100%);
+}
+*/
+
+
+.hero-mockup {
+    width: 100%;       /* 親要素の幅に対して100%で表示 */
+    height: auto;      /* 高さは幅に合わせて自動調整（これで比率が保たれます） */
+    display: block;    /* 画像の下に余計な隙間ができないようにする場合などに追加 */
+}
+
+/* サービス紹介セクション */
+.service-intro {
+    padding: 100px 0;
+    background: var(--white);
+    position: relative;
+}
+
+.service-intro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+}
+
+.section-title {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 24px;
+    position: relative;
+    color: var(--text-dark);
+    letter-spacing: -0.02em;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: var(--border-radius-full);
+}
+
+.section-desc {
+    font-size: clamp(16px, 2vw, 20px);
+    color: var(--text-light);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+.mockup-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.mockup-item {
+    height: 500px;
+    transition: var(--transition);
+    /* 画像を中央に配置し、コンテナ内で全表示するための設定 */
+    display: flex;
+    justify-content: center; /* 水平中央揃え */
+    align-items: center;   /* 垂直中央揃え */
+    overflow: hidden; /* 念のためコンテナからはみ出す要素を隠す */
+}
+
+.mockup-item:hover {
+    transform: translateY(-4px);
+}
+
+.mockup-item img {
+    /* 画像がコンテナ(.mockup-item)のサイズを超えないようにし、アスペクト比を維持 */
+    width: 100%;      /* アスペクト比を保つ */
+    height: 100%;     /* アスペクト比を保つ */
+    display: block;   /* 画像周りの余計な余白を防ぐ */
+    object-fit: cover; /* アスペクト比を保ちつつ、はみ出した部分はトリミング */
+    object-position: center top;
+}
+
+
+/* シーンセクション */
+.scenes {
+    padding: 80px 0;
+    background: var(--bg-gray);
+}
+
+.scene-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.scene-card {
+    background: var(--white);
+    padding: 32px;
+    border-radius: 16px;
+    min-height: 280px;
+    transition: var(--transition);
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.scene-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.scene-image {
+    height: 120px;
+    width: 100%; 
+    margin-bottom: 16px;
+    background: #f0f0f0;
+    border-radius: 12px;
+    overflow: hidden; 
+}
+
+.scene-image img {
+    width: 100%;        /* コンテナ(.scene-image)の幅いっぱいに広がる */
+    height: 100%;       /* コンテナ(.scene-image)の高さいっぱいに広がる */
+    object-fit: cover;  /* 画像のアスペクト比を保ったまま、コンテナ全体を完全に覆うように拡大・縮小されます。
+                           コンテナに収まらない部分はトリミング（見切れる）されます。 */
+    object-position: center; /* 画像のどの部分を中央に表示するか指定 (例: center, top, bottom, 50% 25% など) */
+    display: block;     /* 画像の下にできる余分な隙間を防ぐため (任意) */
+}
+
+.scene-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+.scene-desc {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+/* 機能紹介セクション */
+.features {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.feature-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 80px;
+    align-items: center;
+}
+
+.feature-item:nth-child(even) {
+    direction: rtl;
+}
+
+.feature-item:nth-child(even) > * {
+    direction: ltr;
+}
+
+.feature-mockup {
+    /* 既存のスタイル */
+    height: 600px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+
+    /* 枠や不要な背景をリセット (ここに集約) */
+    border: none;
+    background-color: transparent; /* 背景透過画像を活かすため */
+    padding: 0; /* 念のためパディングもリセット */
+
+    /* 画像を中央に配置し、コンテナ内で全表示するための設定 */
+    display: flex;
+    justify-content: center; /* 水平中央揃え */
+    align-items: center;   /* 垂直中央揃え */
+    overflow: hidden; /* 念のためコンテナからはみ出す要素を隠す */
+}
+
+.feature-mockup.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.feature-mockup img {
+    /* 画像がコンテナ(.feature-mockup)のサイズを超えないようにし、アスペクト比を維持 */
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;      /* アスペクト比を保つ */
+    height: auto;     /* アスペクト比を保つ */
+    display: block;   /* 画像周りの余計な余白を防ぐ */
+    object-fit: contain; /* アスペクト比を保ちつつ、コンテナに収まるように調整 */
+}
+
+.feature-content {
+    padding: 40px;
+}
+
+.feature-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text-dark);
+}
+
+.feature-desc {
+    font-size: 16px;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* 利用者の声セクション */
+.testimonials {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #E3F2FD 0%, #FFFFFF 100%);
+    overflow: hidden;
+}
+
+.testimonial-carousel {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    padding: 20px 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) #e0e0e0;
+}
+
+.testimonial-carousel::-webkit-scrollbar {
+    height: 8px;
+}
+
+.testimonial-carousel::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    border-radius: 4px;
+}
+
+.testimonial-carousel::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+.testimonial-card {
+    flex: 0 0 320px;
+    background: var(--white);
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    transition: var(--transition);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.testimonial-text {
+    font-size: 16px;
+    font-style: italic;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.testimonial-author {
+    font-size: 14px;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* みんなでつくるセクション */
+.accuracy {
+    padding: 80px 0;
+    background: var(--white);
+    text-align: center;
+}
+
+.accuracy-diagram {
+    width: 600px;
+    height: 400px;
+    margin: 48px auto;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 16px;
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.accuracy-features {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.accuracy-feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.check-icon {
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+}
+
+.check-icon::after {
+    content: '✓';
+}
+
+/* 3ステップセクション */
+.steps {
+    padding: 80px 0;
+    background: var(--bg-gray);
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    position: relative;
+}
+
+.step-item {
+    text-align: center;
+    position: relative;
+}
+
+.step-number {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 auto 24px;
+    box-shadow: 0 4px 16px rgba(75, 156, 251, 0.3);
+}
+
+.step-image {
+    height: 200px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.step-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+/* FAQセクション */
+.faq {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 24px 0;
+    transition: var(--transition);
+}
+
+.faq-item:hover {
+    background: rgba(75, 156, 251, 0.02);
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 8px;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.faq-question:hover {
+    color: var(--primary-color);
+}
+
+.faq-arrow {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    color: var(--primary-color);
+}
+
+.faq-arrow::after {
+    content: '▼';
+    font-size: 12px;
+}
+
+.faq-item.active .faq-arrow {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    margin-top: 16px;
+    color: var(--text-light);
+    display: none;
+    line-height: 1.6;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+/* CTAセクション */
+.cta {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #fdedfc 0%, #f8fafc 50%, #aed9f7 100%);
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></svg>') repeat;
+    background-size: 50px 50px;
+}
+
+.cta h2 {
+    font-size: 42px;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 0.8s ease-out;
+    background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary-color) 50%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+}
+
+.store-button {
+    display: inline-block; /* SVGのサイズに合わせるか、指定したサイズにするため */
+    width: 200px;          /* ボタンの目標幅 (SVGの固有サイズに合わせる場合は 'auto' も検討) */
+    height: 60px;           /* ボタンの目標高さ (SVGの固有サイズに合わせる場合は 'auto' も検討) */
+    background: transparent;  /* 背景は完全に透明に */
+    border: none;             /* 枠線もなし */
+    padding: 0;               /* パディングもなし (SVGがぴったりはまるように) */
+    cursor: pointer;
+    transition: var(--transition); /* ホバーエフェクト用 */
+    line-height: 0;           /* img要素周りの余計なスペース対策 */
+    vertical-align: middle;   /* 他の要素と並んだ際の縦位置調整 */
+}
+
+.store-button:hover {
+    transform: translateY(-2px); /* ホバーで少し浮き上がる */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2); /* ホバー時の影 (デザインに応じて) */
+}
+
+/* ボタン内に配置するSVGのスタイル */
+/* (例: <a class="store-button"><img src="images/app-store-badge.svg" alt="App Store"></a>) */
+.store-button img,
+.store-button svg {
+    display: block; /* img下部の余白対策や、サイズ指定のため */
+    width: 100%;    /* 親要素(.store-button)の幅いっぱいに表示 */
+    height: 100%;   /* 親要素(.store-button)の高さいっぱいに表示 */
+    /* SVGのアスペクト比を保ちつつ、指定した 영역에 맞추고 싶을 때 object-fit 사용 */
+    /* object-fit: contain; */ /* SVG全体が見えるように、アスペクト比を保ってコンテナに収める */
+    /* object-fit: cover; */   /* アスペクト比を保ちつつコンテナを完全に覆う（一部が切り取られる可能性あり） */
+    /* object-fit: fill; */    /* コンテナを完全に埋める（アスペクト比が崩れる可能性あり） */
+}
+
+/* フッター */
+footer {
+    background: var(--text-dark);
+    color: white;
+    padding: 40px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-brand h3 {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.footer-brand p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+.footer-links h4 {
+    font-size: 16px;
+    margin-bottom: 16px;
+    color: white;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .header-nav {
+        display: none;
+    }
+
+    .header-logo {
+        width: 70vw;   /* 画面全体の横幅の70% */
+        height: auto;  /* 高さは幅に合わせて自動調整 (アスペクト比維持) */
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .hero {
+        padding-top: 80px;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .hero-text h1 {
+        font-size: 32px;
+    }
+    
+    .hero-text p {
+        font-size: 16px;
+    }
+    
+    .hero-image {
+        height: 400px;
+        margin-top: 40px;
+        order: -1;
+    }
+    
+    .hero-mockup {
+        max-width: 500px;
+        height: 500px;
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+    
+    .mockup-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .scene-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .feature-item {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .feature-item:nth-child(even) {
+        direction: ltr;
+    }
+    
+    .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .step-item {
+        display: flex;            /* Flexboxコンテナとして設定 */
+        flex-direction: column;   /* アイテムを縦方向に並べる */
+        align-items: center;      /* アイテムを中央揃え (元の text-align: center; の効果を維持) */
+    }
+
+    .step-item .step-number {
+        order: 1; /* 表示順 1番目 */
+    }
+
+    .step-item .step-title {
+        order: 2; /* 表示順 2番目 */
+    }
+
+    .step-item .step-desc {
+        order: 3; /* 表示順 3番目 */
+    }
+
+    .step-item .step-image {
+        order: 4; 
+        margin-top: 16px;
+        width: 100%; /* 画像の幅を100%に設定 */
+    }
+    
+    .accuracy-diagram {
+        width: 100%;
+        max-width: 400px;
+        height: 300px;
+    }
+
+    .cta h2 {
+        font-size: 24px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 32px;
+    }
+    
+    .store-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .container {
+        padding: 0 16px;
+    }
+    
+    section {
+        padding: 40px 0 !important;
+    }
+    
+    .btn {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+    
+    .hero-text h1 {
+        font-size: 28px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+    
+    .feature-content {
+        padding: 20px;
+        order: -1;
+    }
+    
+    .feature-title {
+        font-size: 20px;
+    }
+    
+    .scene-card {
+        padding: 24px;
+    }
+    
+    .testimonial-card {
+        flex: 0 0 280px;
+        padding: 20px;
+    }
+    
+    .accuracy-features {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+
+    /* フッターブランド情報と、「リンク」ナビゲーションのセクションを非表示に */
+.footer-content .footer-brand,
+.footer-content .footer-nav-links { /* ← 新しいクラス名で指定 */
+    display: none;
+}
+
+/* 「サポート」セクションのul要素をFlexboxコンテナに */
+.footer-content .footer-support-links ul { /* ← 新しいクラス名で指定 */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+/* 「サポート」セクションのli要素のスタイル調整 */
+.footer-content .footer-support-links li { /* ← 新しいクラス名で指定 */
+    margin-bottom: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* 最初と最後のli要素のマージン調整（任意） */
+.footer-content .footer-support-links li:first-child {
+    margin-left: 0;
+}
+
+.footer-content .footer-support-links li:last-child {
+    margin-right: 0;
+}
+
+
+.footer-content .footer-support-links h4 {
+    display: none;
+}
+
+ 
+}
+

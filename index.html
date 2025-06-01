@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>就活カレンダー - 締切を、逃さない。</title>
+    <meta name="description" content="就活の締切を"みんな"でつくるカレンダーアプリ。ES・面接・説明会の締切を一元管理。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <!-- ロゴ画像挿入位置 -->
+                <img src="images/logo-placeholder.png" alt="就活カレンダー" class="header-logo">
+                
+                <nav class="header-nav">
+                    <a href="#features">機能</a>
+                    <a href="#scenes">活用シーン</a>
+                    <a href="#faq">よくある質問</a>
+                    <a href="#cta" class="btn btn-outline-primary header-cta">ダウンロード</a>
+                </nav>
+                
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- モバイルメニュー -->
+        <div class="mobile-menu">
+            <a href="#features">機能</a>
+            <a href="#scenes">活用シーン</a>
+            <a href="#faq">よくある質問</a>
+            <a href="#cta" class="btn btn-outline-primary header-cta">ダウンロード</a>
+        </div>
+    </header>
+    
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>就職活動、<br>もう締切を逃さない</h1>
+                    <p>就活の締切を"みんな"でつくるカレンダーアプリ</p>
+                    <a href="#cta" class="btn btn-primary">いますぐ無料で始める</a>
+                </div>
+                <div class="hero-image">
+                    <!-- モックアップ画像挿入位置（2枚重ねた画像） -->
+                    <img src="images/hero-mock.png" class="hero-mockup" alt="就活カレンダーのモックアップ" style="width: 100%; height: auto;">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- サービス紹介セクション -->
+    <section class="service-intro">
+        <div class="container">
+            <h2 class="section-title">就活カレンダーとは</h2>
+            <p class="section-desc">
+                就活生同士で締切情報を共有し、正確な情報を元に効率的な就活を実現するアプリです
+            </p>
+            <div class="mockup-grid">
+                <!-- 3つのスクリーン画像挿入位置 -->
+                <div class="mockup-item mockup-placeholder">
+                    <img src="images/service1.png" alt="投稿する人のイメージ" >
+                </div>
+                <div class="mockup-item mockup-placeholder">
+                    <img src="images/service2.png" alt="投票する人のイメージ" >
+                </div>
+                <div class="mockup-item mockup-placeholder">
+                    <img src="images/service3.png" alt="スケジュールを見る人のイメージ" >
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- シーンセクション -->
+    <section class="scenes" id="scenes">
+        <div class="container">
+            <h2 class="section-title">こんなシーンで使える</h2>
+            <div class="scene-grid">
+                <div class="scene-card">
+                    <!-- 画像挿入位置 -->
+                    <div class="scene-image mockup-placeholder">
+                        <img src="images/scene1.png" alt="管理に悩む学生のイメージ">
+                    </div>
+                    <h3 class="scene-title">複数企業の締切管理</h3>
+                    <p class="scene-desc">志望企業が増えても、締切を一覧で確認できます</p>
+                </div>
+                <div class="scene-card">
+                    <!-- 画像挿入位置 -->
+                    <div class="scene-image mockup-placeholder">
+                        <img src="images/scene2.png" alt="連絡を取るひとのイメージ">
+                    </div>
+                    <h3 class="scene-title">仲間と情報共有</h3>
+                    <p class="scene-desc">正確な締切情報をみんなで共有・確認できます</p>
+                </div>
+                <div class="scene-card">
+                    <!-- 画像挿入位置 -->
+                    <div class="scene-image mockup-placeholder">
+                        <img src="images/scene3.png" alt="面接中のひとのイメージ">
+                    </div>
+                    <h3 class="scene-title">選考状況の可視化</h3>
+                    <p class="scene-desc">各企業の選考ステータスを一目で把握できます</p>
+                </div>
+                <div class="scene-card">
+                    <!-- 画像挿入位置 -->
+                    <div class="scene-image mockup-placeholder">
+                        <img src="images/scene4.png" alt="通知が来たひとのイメージ">
+                    </div>
+                    <h3 class="scene-title">締切前の通知で安心</h3>
+                    <p class="scene-desc">重要な締切を見逃さないよう、事前にお知らせします</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 機能紹介セクション -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">主な機能</h2>
+            
+            <div class="feature-item">
+                <!-- モックアップ画像挿入位置 -->
+                <div class="feature-mockup">
+                    <img src="images/mock1.png" alt="カレンダーモックアップ">
+                </div>
+                <div class="feature-content">
+                    <h3 class="feature-title">カレンダー</h3>
+                    <p class="feature-desc">締切がひと目でわかる直感操作。月表示で全体を把握し、重要な日付を見逃しません。</p>
+                </div>
+            </div>
+            
+            <div class="feature-item">
+                <!-- モックアップ画像挿入位置 -->
+                <div class="feature-mockup">
+                    <img src="images/mock2.png" alt="タスクモックアップ">
+                </div>
+                <div class="feature-content">
+                    <h3 class="feature-title">タスク一覧</h3>
+                    <p class="feature-desc">今日やるべきことが明確、ES・Webテストなどの締切を日付順に管理。完了チェックで進捗を記録。</p>
+                </div>
+            </div>
+            
+            <div class="feature-item">
+                <!-- モックアップ画像挿入位置 -->
+                <div class="feature-mockup">
+                    <img src="images/mock3.png" alt="登録企業モックアップ">
+                </div>
+                <div class="feature-content">
+                    <h3 class="feature-title">登録企業</h3>
+                    <p class="feature-desc">企業ごとの選考進捗を一目で把握。ステータスを色分けラベルで視覚化し、効率的な就活戦略をサポート。</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <!-- モックアップ画像挿入位置 -->
+                <div class="feature-mockup">
+                    <img src="images/mock4.png" alt="企業詳細モックアップ">
+                </div>
+                <div class="feature-content">
+                    <h3 class="feature-title">選考管理</h3>
+                    <p class="feature-desc">選考段階を見える化してスッキリ管理。エントリーから内定まで、企業ごとの進捗をワンタップで更新できます。</p>
+                </div>
+            </div>
+            
+            <div class="feature-item">
+                <!-- モックアップ画像挿入位置 -->
+                <div class="feature-mockup">
+                    <img src="images/mock5.png" alt="通知モックアップ">
+                </div>
+                <div class="feature-content">
+                    <h3 class="feature-title">通知リマインダー</h3>
+                    <p class="feature-desc">うっかり忘れを防ぐ、登録企業の締切だけをリマインド。通知時間も自由に設定可能。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 利用者の声セクション -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">利用者の声</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial-card">
+                    <!-- アバター画像挿入位置 -->
+                    <img src="images/user1.png" alt="利用者のアバター画像" class="testimonial-avatar">
+                    <p class="testimonial-text">企業選ぶだけで締切がわかるの！？ってなった。本当に便利です。</p>
+                    <p class="testimonial-author">大学3年生・文系</p>
+                </div>
+                <div class="testimonial-card">
+                    <!-- アバター画像挿入位置 -->
+                    <img src="images/user3.png" alt="利用者のアバター画像" class="testimonial-avatar">
+                    <p class="testimonial-text">うっかり忘れがなくなった！通知機能のおかげで締切に遅れることがなくなりました。</p>
+                    <p class="testimonial-author">大学院1年生・理系</p>
+                </div>
+                <div class="testimonial-card">
+                    <!-- アバター画像挿入位置 -->
+                    <img src="images/user2.png" alt="利用者のアバター画像" class="testimonial-avatar">
+                    <p class="testimonial-text">締切管理が楽になった！複数企業の情報を一覧で見れるのが便利です。</p>
+                    <p class="testimonial-author">大学3年生・文系</p>
+                </div>
+                <div class="testimonial-card">
+                    <!-- アバター画像挿入位置 -->
+                    <img src="images/user4.png" alt="利用者のアバター画像" class="testimonial-avatar">
+                    <p class="testimonial-text">みんなの情報が見れて安心。自分の学校から何人くらい出したかわかるのも参考になります。</p>
+                    <p class="testimonial-author">大学3年生・理系</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- みんなでつくるセクション -->
+    <section class="accuracy">
+        <div class="container">
+            <h2 class="section-title">みんなでつくるから正確</h2>
+            <!-- 図解画像挿入位置 -->
+            <div class="accuracy-diagram mockup-placeholder">
+                複数ユーザーが情報投稿する図解
+            </div>
+            <div class="accuracy-features">
+                <div class="accuracy-feature">
+                    <div class="check-icon"></div>
+                    <span>独自のアルゴリズムで信頼性を担保</span>
+                </div>
+                <div class="accuracy-feature">
+                    <div class="check-icon"></div>
+                    <span>1,200社以上の企業データベース</span>
+                </div>
+                <div class="accuracy-feature">
+                    <div class="check-icon"></div>
+                    <span>リアルタイムで更新される締切情報</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 3ステップセクション -->
+    <section class="steps">
+        <div class="container">
+            <h2 class="section-title">かんたん3ステップ</h2>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <!-- 画像挿入位置 -->
+                    <div class="step-image mockup-placeholder">
+                        アプリダウンロード
+                    </div>
+                    <h3 class="step-title">アプリをダウンロード</h3>
+                    <p class="step-desc">無料でダウンロードして、すぐに始められます</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <!-- 画像挿入位置 -->
+                    <div class="step-image mockup-placeholder">
+                        企業選択画面
+                    </div>
+                    <h3 class="step-title">志望企業を登録</h3>
+                    <p class="step-desc">1,200社以上から志望企業を選択</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <!-- 画像挿入位置 -->
+                    <div class="step-image mockup-placeholder">
+                        カレンダー画面
+                    </div>
+                    <h3 class="step-title">締切を確認・管理</h3>
+                    <p class="step-desc">カレンダーで締切を一目で確認</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQセクション -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">よくある質問</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>料金はかかりますか？</span>
+                        <div class="faq-arrow"></div>
+                    </div>
+                    <div class="faq-answer">
+                        完全無料でご利用いただけます。アプリ内課金もありませんので、安心してお使いください。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>どんな企業の情報がありますか？</span>
+                        <div class="faq-arrow"></div>
+                    </div>
+                    <div class="faq-answer">
+                        国内主要1,200社以上の情報を収録しています。大手企業から中堅企業まで、幅広い業界の企業を定期的に追加しております。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>個人情報は安全ですか？</span>
+                        <div class="faq-arrow"></div>
+                    </div>
+                    <div class="faq-answer">
+                        匿名認証を採用しており、個人を特定する情報は収集していません。安心してご利用いただけます。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTAセクション -->
+    <section class="cta" id="cta">
+        <div class="container">
+            <h2>就活カレンダーをはじめよう</h2>
+            <div class="store-buttons">
+                <a href="#" class="store-button" aria-label="App Storeからダウンロード">
+                    <img src="images/app-store-badge.svg" alt="App Store">
+                </a>
+                <!--
+                <a href="#" class="store-button" aria-label="Google Playで手に入れよう">
+                    <img src="images/google-play-badge.svg" alt="Google Play">
+                </a> 
+                -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>就活カレンダー</h3>
+                    <p>就活の締切を"みんな"でつくるカレンダーアプリ。<br>
+                    リアルタイムで更新される締切情報で、 あなたの就活をサポートします。</p>
+                </div>
+                <div class="footer-links footer-nav-links">
+                    <ul>
+                        <li><a href="#features">機能</a></li>
+                        <li><a href="#scenes">活用シーン</a></li>
+                        <li><a href="#faq">よくある質問</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links footer-support-links"> 
+                    <ul>
+                        <li><a href="#">利用規約</a></li>
+                        <li><a href="#">プライバシーポリシー</a></li>
+                        <li><a href="#">お問い合わせ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 就活カレンダー運営. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
+
