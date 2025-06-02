@@ -788,6 +788,13 @@ header {
     position: relative;
 }
 
+.accuracy-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
 .accuracy-features {
     display: flex;
     justify-content: center;
@@ -1193,6 +1200,7 @@ footer {
         width: 100%;
         max-width: 400px;
         height: 300px;
+        margin: 0 auto;
     }
     
 
