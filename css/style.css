@@ -529,26 +529,52 @@ header {
 }
 
 .mockup-item {
-    height: 500px;
     transition: var(--transition);
-    /* 画像を中央に配置し、コンテナ内で全表示するための設定 */
     display: flex;
-    justify-content: center; /* 水平中央揃え */
-    align-items: center;   /* 垂直中央揃え */
-    overflow: hidden; /* 念のためコンテナからはみ出す要素を隠す */
+    flex-direction: column; /* 縦方向に配置 */
+    align-items: center;
+    text-align: center;
 }
 
 .mockup-item:hover {
     transform: translateY(-4px);
 }
 
-.mockup-item img {
-    /* 画像がコンテナ(.mockup-item)のサイズを超えないようにし、アスペクト比を維持 */
-    width: 100%;      /* アスペクト比を保つ */
-    height: 100%;     /* アスペクト比を保つ */
-    display: block;   /* 画像周りの余計な余白を防ぐ */
-    object-fit: cover; /* アスペクト比を保ちつつ、はみ出した部分はトリミング */
+.mockup-image {
+    height: 500px; /* 画像エリアの高さを調整 */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: var(--border-radius-2xl);
+    border: 1px solid rgba(0,0,0,0.05);
+    margin-bottom: 24px; /* 画像と説明文の間隔 */
+}
+
+.mockup-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
     object-position: center top;
+}
+
+.mockup-description {
+    padding: 0 16px;
+}
+
+.mockup-description h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-dark);
+}
+
+.mockup-description p {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.6;
 }
 
 
@@ -759,10 +785,7 @@ header {
     width: 600px;
     height: 400px;
     margin: 48px auto;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 16px;
     position: relative;
-    border: 1px solid rgba(0,0,0,0.05);
 }
 
 .accuracy-features {
@@ -835,6 +858,17 @@ header {
     border-radius: 12px;
     margin-bottom: 16px;
     border: 1px solid rgba(0,0,0,0.05);
+    overflow: hidden; /* はみ出しを防ぐ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.step-image img {
+    width: 100%; /* 幅は100%で横は見切れてもOK */
+    height: 100%; /* 高さも100% */
+    object-fit: cover; /* アスペクト比を保ちつつ、containerを埋める（横が見切れる可能性あり） */
+    object-position: center; /* 画像の中央部分を表示 */
 }
 
 .step-title {
@@ -1107,6 +1141,19 @@ footer {
         grid-template-columns: 1fr;
         gap: 16px;
     }
+
+    .mockup-image {
+        height: 500px; /* モバイルでは画像を小さく */
+        margin-bottom: 16px;
+    }
+    
+    .mockup-description h3 {
+        font-size: 18px;
+    }
+    
+    .mockup-description p {
+        font-size: 13px;
+    }
     
     .scene-grid {
         grid-template-columns: 1fr;
@@ -1133,22 +1180,13 @@ footer {
         align-items: center;      /* アイテムを中央揃え (元の text-align: center; の効果を維持) */
     }
 
-    .step-item .step-number {
-        order: 1; /* 表示順 1番目 */
-    }
 
-    .step-item .step-title {
-        order: 2; /* 表示順 2番目 */
-    }
-
-    .step-item .step-desc {
-        order: 3; /* 表示順 3番目 */
-    }
-
-    .step-item .step-image {
-        order: 4; 
-        margin-top: 16px;
-        width: 100%; /* 画像の幅を100%に設定 */
+    
+    .step-item .step-image img {
+        width: 100%; /* 幅は100%で横見切れOK */
+        height: 100%;
+        object-fit: cover; /* 横が見切れてもcontainerを完全に埋める */
+        object-position: center;
     }
     
     .accuracy-diagram {
@@ -1224,40 +1262,39 @@ footer {
 
 
     /* フッターブランド情報と、「リンク」ナビゲーションのセクションを非表示に */
-.footer-content .footer-brand,
-.footer-content .footer-nav-links { /* ← 新しいクラス名で指定 */
-    display: none;
-}
+    .footer-content .footer-brand,
+    .footer-content .footer-nav-links { 
+        display: none;
+    }
 
-/* 「サポート」セクションのul要素をFlexboxコンテナに */
-.footer-content .footer-support-links ul { /* ← 新しいクラス名で指定 */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-left: 0;
-    list-style-type: none;
-}
+    /* 「サポート」セクションのul要素をFlexboxコンテナに */
+    .footer-content .footer-support-links ul { 
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-left: 0;
+        list-style-type: none;
+    }
 
-/* 「サポート」セクションのli要素のスタイル調整 */
-.footer-content .footer-support-links li { /* ← 新しいクラス名で指定 */
-    margin-bottom: 0;
-    margin-left: 10px;
-    margin-right: 10px;
-}
+    /* 「サポート」セクションのli要素のスタイル調整 */
+    .footer-content .footer-support-links li { 
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 
-/* 最初と最後のli要素のマージン調整（任意） */
-.footer-content .footer-support-links li:first-child {
-    margin-left: 0;
-}
+    /* 最初と最後のli要素のマージン調整（任意） */
+    .footer-content .footer-support-links li:first-child {
+        margin-left: 0;
+    }
 
-.footer-content .footer-support-links li:last-child {
-    margin-right: 0;
-}
+    .footer-content .footer-support-links li:last-child {
+        margin-right: 0;
+    }
 
 
-.footer-content .footer-support-links h4 {
-    display: none;
-}
+    .footer-content .footer-support-links h4 {
+        display: none;
+    }
 
  
 }
