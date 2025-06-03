@@ -973,6 +973,8 @@ header {
     height: 100%;
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></svg>') repeat;
     background-size: 50px 50px;
+    z-index: -1; /* 背景に配置 */
+    pointer-events: none; /* クリックイベントを通す */
 }
 
 .cta h2 {
@@ -990,7 +992,7 @@ header {
 
 .store-button {
     display: inline-block; /* SVGのサイズに合わせるか、指定したサイズにするため */
-    width: 200px;          /* ボタンの目標幅 (SVGの固有サイズに合わせる場合は 'auto' も検討) */
+    width: auto;          /* ボタンの目標幅 (SVGの固有サイズに合わせる場合は 'auto' も検討) */
     height: 60px;           /* ボタンの目標高さ (SVGの固有サイズに合わせる場合は 'auto' も検討) */
     background: transparent;  /* 背景は完全に透明に */
     border: none;             /* 枠線もなし */
@@ -999,10 +1001,13 @@ header {
     transition: var(--transition); /* ホバーエフェクト用 */
     line-height: 0;           /* img要素周りの余計なスペース対策 */
     vertical-align: middle;   /* 他の要素と並んだ際の縦位置調整 */
+    position: relative; /* z-indexを有効にする */
+    z-index: 1; /* 疑似要素より前面に */
 }
 
 .store-button:hover {
     transform: translateY(-2px); /* ホバーで少し浮き上がる */
+    border-radius: var(--border-radius-2xl);
     box-shadow: 0 8px 24px rgba(0,0,0,0.2); /* ホバー時の影 (デザインに応じて) */
 }
 
